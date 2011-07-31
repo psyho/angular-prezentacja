@@ -1,0 +1,14 @@
+<div id="header">
+  <h1>{{currentSlide.title}}</h1>
+  <h2>{{currentSlide.subtitle}}</h2>
+</div>
+<div id="content">
+  {{currentSlide.content|html}}
+</div>
+<div id="footer">
+  <h3>{{presentation.author}} - {{presentation.title}}</h3>
+</div>
+<div id="sidebar">
+  <div id="llp-logo"></div>
+  <div id="slide-number">{{currentSlideIdx + 1}}</div>
+</div>
