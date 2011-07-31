@@ -77,3 +77,8 @@ h2 {
   width: 75px;
   background: url('/images/llp-logo.png') top left no-repeat;
 }
+
+#content ul {
+  list-style-type: circle;
+  padding-left: 1em;
+}
