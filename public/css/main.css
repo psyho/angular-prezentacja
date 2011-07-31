@@ -1,0 +1,79 @@
+html, body { 
+  height: 100%;
+  position: relative;
+}
+
+body { 
+  font-family: MuseoSlab-500; 
+  font-size: 2em;
+  color: #303b41;
+  background-color: #f0f0f2;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+  text-shadow: 0.05em 0.05em 0.2em #303b41;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+  padding-bottom: 0.5em;
+  color: #34adef;
+}
+
+#header, #content {
+  margin-right: 150px;
+  margin-left: 1em;
+}
+
+#header {
+  padding-top: 0.5em;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-bottom: 1em;
+}
+
+#footer h3 {
+  color: #34adef;
+  font-size: 0.7em;
+  border-top: 1px solid #a1a1ad;
+  padding: 0.2em;
+  padding-top: 0.8em;
+  margin-right: 110px;
+  margin-left: 30px;
+}
+
+#sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 75px;
+  height: 100%;
+  background-color: #303b41;
+  border-left: 5px solid #34adef;
+}
+
+#slide-number {
+  position: absolute;
+  color: #f0f0f2;
+  background-color: #34adef;
+  font-size: 0.7em;
+  bottom: 120px;
+  left: 0;
+  padding: 0.3em;
+  padding-bottom: 0.1em;
+}
+
+#llp-logo {
+  height: 350px;
+  width: 75px;
+  background: url('/images/llp-logo.png') top left no-repeat;
+}
