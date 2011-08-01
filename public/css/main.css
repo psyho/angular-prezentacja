@@ -92,3 +92,53 @@ h2 {
   list-style-type: circle;
   padding-left: 1em;
 }
+
+#tabs li {
+  display: block;
+  float: left;
+  width: 80px;
+  font-size: 0.7em;
+  margin-right: 0.2em;
+  border: 1px solid #a1a1ad;
+  border-bottom: none;
+  padding: 0.3em;
+  padding-bottom: 0.1em;
+  text-align: center;
+}
+
+#tabs li.active {
+  background-color: #34adef;
+}
+
+#tabs li {
+  color: #303b41;
+  text-decoration: none;
+}
+
+#tabs li.active {
+  color: #f0f0f2;
+  text-decoration: underline;
+}
+
+#tabs ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#tabs .body {
+  border: 1px solid #a1a1ad;
+  padding: 0.2em;
+  margin-right: 30px;
+  font-size: 0.8em;
+  max-height: 200px;
+  overflow: auto;
+}
+
+#tabs .body p {
+  margin-top: 0.5em;
+}
+
+.clear {
+  clear: both;
+}
+

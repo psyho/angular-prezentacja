@@ -17,7 +17,31 @@ function SlidesController($route, $location, $xhr) {
       content: '',
       load: function() {
         $xhr('GET', '/slides/'+contentSrc, function(code, response) {
-          thisSlide.content = response;
+          if(contentSrc.match(/\.md$/)) {
+            thisSlide.content = new Showdown.converter().makeHtml(response);
+          } else {
+            thisSlide.content = response;
+          }
+        });
+      }
+    };
+
+    return thisSlide;
+  }
+
+  function code(title, subtitle, name) {
+    var thisSlide = {
+      layout: 'code',
+      title: title,
+      subtitle: subtitle,
+      htmlCode: '',
+      jsCode: '',
+      load: function() {
+        $xhr('GET', '/slides/'+name+'.js', function(code, response) {
+          thisSlide.jsCode = response;
+        });
+        $xhr('GET', '/slides/'+name+'.html', function(code, response) {
+          thisSlide.htmlCode = response;
         });
       }
     };
@@ -27,10 +51,10 @@ function SlidesController($route, $location, $xhr) {
 
   this.slides = [
     {layout: 'title'},
-    slide('Slide title 1', 'Slide sub', 'test.html'),
-    slide('Slide title 2', 'Slide sub', 'test.html'),
-    slide('Slide title 3', 'Slide sub', 'test.html'),
-    slide('Slide title 4', 'Slide sub', 'test.html')
+    slide('Agenda', '', 'agenda.md'),
+    slide('AngularJS', 'What is AngularJS?', 'what_is_angular.md'),
+    slide('History', 'What is AngularJS?', 'angular_history.md'),
+    code('Basic Hello World', 'Hello World!', 'hello_world')
   ];
 
   $route.when('/slide/:slideIdx', {template: '/slides/slide.html'});
@@ -81,6 +105,7 @@ function onKeyDown(keyCode) {
           scope.$eval(expression);
           scope.$eval();
         }
+        e.stopPropagation();
       });
     };
   };
@@ -88,3 +113,85 @@ function onKeyDown(keyCode) {
 
 angular.directive('my:left', onKeyDown(37));
 angular.directive('my:right', onKeyDown(39));
+
+function TabsController() {
+  this.activeTab = 'demo';
+}
+
+TabsController.prototype = {
+  activeClass: function(tab) {
+    if(this.isActive(tab)) {
+      return 'active';
+    }
+  },
+  isActive: function(tab) {
+    return this.activeTab === tab;
+  },
+  setActive: function(tab) {
+    this.activeTab = tab;
+  }
+};
+
+angular.widget('@my:html', function(expression, element) {
+  var compiler = this;
+
+  if (element[0]['ng:compiled']) {
+    compiler.descend(true);
+    compiler.directives(true);
+
+    return angular.noop;
+  } else {
+    element[0]['ng:compiled'] = true;
+    return function(element) {
+      var scope = this;
+      this.$watch(expression, function() {
+        var html = scope.$eval(expression);
+        element.html(html);
+        compiler.compile(element)(scope);
+      });
+    };
+  }
+});
+
+angular.widget('@my:script', function(expression, element) {
+  return function(element) {
+    var scope = this;
+    this.$watch(expression, function() {
+      var js = scope.$eval(expression);
+      eval(js); //eval is evil, I know
+    });
+  };
+});
+
+angular.directive('my:code-editor', function(mode, element) {
+  var name = element.attr('name');
+
+  return function(element) {
+    var scope = this;
+
+    var options = {
+      lineNumbers: true,
+      onChange: function(editor) {
+        scope.$set(name, editor.getValue());
+        scope.$eval();
+      }
+    };
+
+    if(mode === 'js') {
+      options.matchBrackets = true;
+    } else if (mode === 'html') {
+      options.mode = "text/html";
+      options.tabMode = "indent";
+    }
+
+    var editor = CodeMirror.fromTextArea(element[0], options);
+
+    scope.$watch(name, function() {
+      var value = scope.$eval(name);
+      if(editor.getValue() !== value) {
+        editor.setValue(value);
+        editor.refresh();
+      }
+    });
+  };
+});
