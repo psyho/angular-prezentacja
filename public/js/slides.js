@@ -54,10 +54,12 @@ function SlidesController($route, $location, $xhr) {
     slide('Agenda', '', 'agenda.md'),
     slide('AngularJS', 'What is AngularJS?', 'what_is_angular.md'),
     slide('History', 'What is AngularJS?', 'angular_history.md'),
-    code('Basic Hello World', 'Hello World!', 'hello_world')
+    code('Basic Hello World', 'Hello World!', 'hello_world'),
+    code('Hello Controllers', 'Hello World!', 'hello_controllers')
   ];
 
-  $route.when('/slide/:slideIdx', {template: '/slides/slide.html'});
+  $route.parent(this);
+  $route.when('/slide/:slideIdx', {template: '/views/main.html'});
   $route.otherwise({redirectTo: '/slide/0'});
 
   var self = this;
@@ -158,7 +160,7 @@ angular.widget('@my:script', function(expression, element) {
     var scope = this;
     this.$watch(expression, function() {
       var js = scope.$eval(expression);
-      eval(js); //eval is evil, I know
+      element.append('<script type="text/javascript">'+js+'</script>');
     });
   };
 });
@@ -178,6 +180,7 @@ angular.directive('my:code-editor', function(mode, element) {
     };
 
     if(mode === 'js') {
+      options.mode = "text/javascript";
       options.matchBrackets = true;
     } else if (mode === 'html') {
       options.mode = "text/html";

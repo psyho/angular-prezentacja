@@ -1,3 +1,3 @@
 source :gemcutter
 
-gem 'unicorn'
+gem 'sinatra'

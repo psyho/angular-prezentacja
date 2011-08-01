@@ -1,0 +1,10 @@
+<p>TODO:</p>
+<ul ng:controller="ToDoController">
+  <li ng:repeat="item in todoList">
+    {{item}} <a ng:click="remove($index)">[X]</a>
+  </li>
+  <li>
+    <input type="text" name="newItem"/>
+    <button ng:click="add()">Add</button>
+  </li>
+</ul>

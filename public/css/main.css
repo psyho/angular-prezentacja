@@ -93,7 +93,7 @@ h2 {
   padding-left: 1em;
 }
 
-#tabs li {
+#tabs ul.tab-headers li {
   display: block;
   float: left;
   width: 80px;
@@ -106,21 +106,21 @@ h2 {
   text-align: center;
 }
 
-#tabs li.active {
+#tabs ul.tab-headers li.active {
   background-color: #34adef;
 }
 
-#tabs li {
+#tabs ul.tab-headers li {
   color: #303b41;
   text-decoration: none;
 }
 
-#tabs li.active {
+#tabs ul.tab-headers li.active {
   color: #f0f0f2;
   text-decoration: underline;
 }
 
-#tabs ul {
+#tabs ul.tab-headers {
   list-style-type: none;
   padding: 0;
 }
