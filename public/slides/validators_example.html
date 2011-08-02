@@ -1,0 +1,15 @@
+<p>
+  <label for="foo">Number</label>
+  <input type="text" name="foo" value="1234" ng:validate="number:1000:2000"/>
+  <pre>{{foo|json}}</pre>
+</p>
+
+<p>
+  <label for="bar">Required</label>
+  <input type="text" name="bar" value="" ng:required />
+</p>
+
+<p>
+  <label for="baz">FooBar</label>
+  <input type="text" name="baz" value="foo" ng:validate="foobar" />
+</p>

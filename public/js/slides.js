@@ -75,6 +75,19 @@ function SlidesController($route, $location, $xhr) {
     slide('Directives', 'Building Blocks', 'directives.md'),
     code('Directive Example', 'Building Blocks', 'directive_example'),
 
+    slide('Filters', 'Building Blocks', 'filters.md'),
+    code('Filter Example', 'Building Blocks', 'filters_example'),
+
+    slide('Formatters', 'Building Blocks', 'formatters.md'),
+    code('Formatter Example', 'Building Blocks', 'formatters_example'),
+
+    slide('Validators', 'Building Blocks', 'validators.md'),
+    code('Validator Example', 'Building Blocks', 'validators_example'),
+
+    slide('Services', 'Building Blocks', 'services.md'),
+    slide('Dependency Injection', 'Building Blocks', 'di.md'),
+    code('Service Example', 'Building Blocks', 'service_example'),
+
     center("Questions?"),
     center("Thank You :)")
   ];

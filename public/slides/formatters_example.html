@@ -1,0 +1,24 @@
+<p>
+  <label for="tags">Tags Formatted</label>
+  <input type="text" name="tags" value="foo, bar, baz" ng:format="list"/>
+  <pre>{{tags|json}}</pre>
+</p>
+
+<p>
+  <label for="tags1">Tags Unformatted</label>
+  <input type="text" name="tags1" value="foo, bar, baz"/>
+  <pre>{{tags1|json}}</pre>
+</p>
+
+<p>
+  <label for="foo">Foo</label>
+  <input type="text" name="foo" value="foo, bar, baz" ng:format="reverse"/>
+  <pre>{{foo|json}}</pre>
+</p>
+
+<p>
+  <label for="bar">Number</label>
+  <input type="text" name="bar" value="12345" ng:format="number"/>
+  <pre>{{bar|json}}</pre>
+</p>
+
