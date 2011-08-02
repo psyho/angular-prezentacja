@@ -125,6 +125,8 @@ function SlidesController($route, $location, $xhr) {
     snippet('Routing', 'Snippets', 'routing.js'),
     snippet('Routing HTML', 'Snippets', 'routing.html'),
     code('Scope nesting example', 'Snippets', 'scope_nesting'),
+    snippet('Dependency injection in widget/directive', 'Snippets', 'di_widget.js'),
+    snippet('Constructor dependency injection', 'Snippets', 'constructor_di.js'),
 
     slide('Summary', 'too long; slept through', 'summary.md'),
 
