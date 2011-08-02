@@ -1,0 +1,14 @@
+<div id="header">
+  <h1>{{currentSlide.title}}</h1>
+  <h2 ng:show="currentSlide.subtitle">{{currentSlide.subtitle}}</h2>
+</div>
+<div id="content" ng:controller="TabsController">
+  <my:snippet name="currentSlide.code" mode="currentSlide.mode"></my:snippet>
+</div>
+<div id="footer">
+  <h3>{{presentation.author}} - {{presentation.title}}</h3>
+</div>
+<div id="sidebar">
+  <div id="llp-logo"></div>
+  <div id="slide-number">{{currentSlideIdx + 1}}</div>
+</div>
