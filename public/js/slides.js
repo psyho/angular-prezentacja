@@ -5,7 +5,7 @@ function SlidesController($route, $location, $xhr) {
   this.$location = $location;
 
   this.presentation = {
-    title: "Tworzenie testowalnych aplikacji internetowych w AngularJS",
+    title: "Creating testable JS web applications with AngularJS",
     author: "Adam Pohorecki"
   };
 
@@ -88,8 +88,17 @@ function SlidesController($route, $location, $xhr) {
     slide('Dependency Injection', 'Building Blocks', 'di.md'),
     code('Service Example', 'Building Blocks', 'service_example'),
 
+    slide('Testability?', 'Testing', 'testability.md'),
+    slide('Unit Testing', 'Testing', 'unit_testing.md'),
+    slide('js-test-driver(-rails)', 'Testing', 'jstd.html'),
+    slide('Integration Testing', 'Testing', 'integration_testing.md'),
+
+    slide('Summary', 'too long; slept through', 'summary.md'),
+
     center("Questions?"),
-    center("Thank You :)")
+    center("Thank You :)"),
+
+    slide('Next meeting', 'September', 'next_krug.md')
   ];
 
   $route.parent(this);

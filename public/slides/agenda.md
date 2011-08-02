@@ -2,6 +2,5 @@
 * Hello World
 * MVC in AngularJS
 * Building blocks of an Angular application
+* Testing
 * A bunch of recipes
-* Unit testing
-* Angular Scenario Runner
