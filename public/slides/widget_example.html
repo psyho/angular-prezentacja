@@ -1,0 +1,19 @@
+<style type="text/css">
+  .expanded:before {
+    content: "- "
+  }
+
+  .collapsed:before {
+    content: "+ "
+  }
+</style>
+
+<p>
+  <input type="text" name="label" value="Click me!" />
+</p>
+
+<div my:expandable="label">
+  <p>one</p>
+  <p>two</p>
+  <p>three</p>
+</div>

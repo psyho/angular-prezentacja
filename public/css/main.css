@@ -93,6 +93,12 @@ h2 {
   padding-left: 1em;
 }
 
+#content img {
+  height: 400px;
+  width: auto;
+  text-align: center;
+}
+
 #tabs ul.tab-headers li {
   display: block;
   float: left;

@@ -3,7 +3,7 @@
   <h2 ng:show="currentSlide.subtitle">{{currentSlide.subtitle}}</h2>
 </div>
 <div id="content">
-  {{currentSlide.content|html}}
+  <div my:html="currentSlide.content"></div>
 </div>
 <div id="footer">
   <h3>{{presentation.author}} - {{presentation.title}}</h3>

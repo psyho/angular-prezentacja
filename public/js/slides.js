@@ -9,6 +9,15 @@ function SlidesController($route, $location, $xhr) {
     author: "Adam Pohorecki"
   };
 
+  function center(title, subtitle) {
+    return {
+      layout: 'center',
+      title: title,
+      subtitle: subtitle,
+      load: angular.noop
+    };
+  }
+
   function slide(title, subtitle, contentSrc) {
     var thisSlide = {
       layout: 'slide',
@@ -50,12 +59,24 @@ function SlidesController($route, $location, $xhr) {
   }
 
   this.slides = [
-    {layout: 'title'},
+    center(this.presentation.title, this.presentation.author),
+
     slide('Agenda', '', 'agenda.md'),
     slide('AngularJS', 'What is AngularJS?', 'what_is_angular.md'),
     slide('History', 'What is AngularJS?', 'angular_history.md'),
     code('Basic Hello World', 'Hello World!', 'hello_world'),
-    code('Hello Controllers', 'Hello World!', 'hello_controllers')
+    code('Hello Controllers', 'Hello World!', 'hello_controllers'),
+
+    slide('Model View Controller', 'Angular MVC', 'angular_mvc.md'),
+
+    slide('Widgets', 'Building Blocks', 'widgets.md'),
+    code('Widget Example', 'Building Blocks', 'widget_example'),
+
+    slide('Directives', 'Building Blocks', 'directives.md'),
+    code('Directive Example', 'Building Blocks', 'directive_example'),
+
+    center("Questions?"),
+    center("Thank You :)")
   ];
 
   $route.parent(this);
